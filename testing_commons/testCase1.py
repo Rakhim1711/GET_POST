@@ -5,7 +5,7 @@ import requests
 
 
 
-def test_function():
+def test_get():
     url = "https://reqres.in/api/users?page=2"
 
     url_response = requests.get(url)
@@ -24,9 +24,21 @@ def test_function():
     assert per_page[0] == 6
 
     assert students[0] == {'avatar': 'https://reqres.in/img/faces/7-image.jpg',
- 'email': 'michael.lawson@reqres.in',
- 'first_name': 'Michael',
- 'id': 7,
- 'last_name': 'Lawson'}
+                             'email': 'michael.lawson@reqres.in',
+                                'first_name': 'Michael',
+                            'id': 7,
+                            'last_name': 'Lawson'}
+
+
+
+def test_post():
+
+    url = "https://reqres.in/api/users"
+
+    get_url = requests.post(url)
+
+    response_post = get_url.status_code
+
+    assert response_post == 201
 
 
